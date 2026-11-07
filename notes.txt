@@ -1,0 +1,20 @@
+yt-dlp -vU 'https://www.youtube.com/playlist?list=PLXoSsfe84qH0'
+
+yt-dlp -s --flat-playlist --print-to-file "%(uploader)s/%(title)s [%(id)s].mp3" "%(playlist_title)s.m3u" "https://www.youtube.com/playlist?list=PLXoSsfe84qH0"
+
+sleep 60 && cp z-ro-suunto/Gift\ Horse.mp3 /media/zroberts/Suunto\ Run/Music/ && sleep 60 && cp z-ro-suunto/キャンディーレーサー.mp3 /media/zroberts/Suunto\ Run/Music/ && sleep 60 && cp z-ro-suunto/Side2Side.mp3 /media/zroberts/Suunto\ Run/Music/ && sleep 60 && cp z-ro-suunto/Bass.mp3 /media/zroberts/Suunto\ Run/Music/
+
+
+id3v2 -l --TRCK z-ro-suunto/Dancer.mp3
+eyeD3 z-ro-suunto/Dancer.mp3
+
+
+adb bugreport bug.zip
+find . -name btsnoop_hci.log
+
+rclone mount GDrive: ~/GDrive --vfs-cache-mode full
+
+python3 suunto_client.py --address 0C:8C:DC:B1:52:F5 songs 2>&1 > n4-songs.out
+python3 suunto_client.py --address 0C:8C:DC:B1:52:F5 probe 2>&1 > n4-probe.out
+python3 suunto_client.py --address 0C:8C:DC:B1:52:F5 services
+

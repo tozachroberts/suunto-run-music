@@ -1,0 +1,15 @@
+--js-runtimes node
+--ppa "ffmpeg: -write_id3v1 0 -write_id3v2 1 -id3v2_version 4"
+-x
+--no-keep-video
+--audio-format mp3
+--audio-quality 320K
+--cookies-from-browser chrome
+--parse-metadata ":(?P<meta_description>)"
+--parse-metadata ":(?P<meta_comment>)"
+--parse-metadata ":(?P<meta_synopsis>)"
+--parse-metadata "artist:(?P<artist>[^,]+)"
+--parse-metadata "%(playlist_title|)s:%(meta_album)s"
+--parse-metadata "playlist_index:%(track_number)s"
+--embed-metadata
+-o "%(playlist)s/%(title)s.%(ext)s" 
